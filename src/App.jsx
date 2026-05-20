@@ -186,10 +186,8 @@ export default function App() {
       >
       
           <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={{
-            opacity: 1,
-            y: [0, -10, 0],
+          initial={{ y: 0 }}
+          animate={{ y: [0, -10, 0],
           }}
           transition={{
             duration: 4,
@@ -199,8 +197,8 @@ export default function App() {
           className="relative z-10"
         >
           <motion.img
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
+          initial={{ y: 0 }}
+          animate={{ y: [0, -5, 0] }}
           transition={{ duration: 1.5 }}
           src={logo}
           alt="NYXEN"
