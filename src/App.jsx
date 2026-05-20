@@ -1,6 +1,7 @@
 import { motion, useScroll, useSpring, AnimatePresence } from "framer-motion"
 import { useEffect, useState } from "react"
 import { Menu, X } from "lucide-react"
+import logo from "./assets/logo.png"
 
 export default function App() {
 
@@ -28,16 +29,24 @@ export default function App() {
     return (
       <div className="h-screen bg-black flex items-center justify-center overflow-hidden">
 
-        <motion.h1
+        <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1.5 }}
-          className="text-5xl md:text-8xl font-black tracking-[-0.08em] text-white"
+          className="flex flex-col items-center"
         >
 
-          NYXEN
+          <img
+            src={logo}
+            alt="NYXEN"
+            className="w-28 h-28 object-contain mb-8"
+          />
 
-        </motion.h1>
+          <h1 className="text-5xl md:text-8xl font-black tracking-[-0.08em] text-white">
+            NYXEN
+          </h1>
+
+        </motion.div>
 
       </div>
     )
@@ -75,10 +84,18 @@ export default function App() {
 
         <a
           href="#hero"
-          className="text-sm sm:text-xl font-black tracking-[0.4em]"
+          className="flex items-center gap-3 group"
         >
 
-          NYXEN
+          <img
+            src={logo}
+            alt="NYXEN"
+            className="w-10 h-10 object-contain transition-all duration-500 group-hover:scale-110"
+          />
+
+          <h2 className="text-sm sm:text-xl font-black tracking-[0.35em] group-hover:tracking-[0.45em] transition-all duration-500">
+            NYXEN
+          </h2>
 
         </a>
 
@@ -168,6 +185,16 @@ export default function App() {
         className="min-h-screen flex flex-col items-center justify-center px-6 text-center relative z-10 overflow-hidden"
       >
 
+        {/* background logo */}
+        <motion.img
+          src={logo}
+          alt="NYXEN"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 0.04 }}
+          transition={{ duration: 2 }}
+          className="absolute w-[500px] md:w-[800px] opacity-5 blur-[1px] pointer-events-none"
+        />
+
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{
@@ -179,6 +206,7 @@ export default function App() {
             repeat: Infinity,
             ease: "easeInOut",
           }}
+          className="relative z-10"
         >
 
           <motion.h1
@@ -194,7 +222,7 @@ export default function App() {
 
           <p className="mt-6 text-gray-400 text-xs sm:text-sm md:text-xl uppercase tracking-[0.35em]">
 
-            Silence. Strength. Identity.
+            Wear The Future
 
           </p>
 
@@ -287,199 +315,52 @@ export default function App() {
 
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8">
-
-          <motion.div
-            whileHover={{
-              rotateX: 4,
-              rotateY: -4,
-              scale: 1.02,
-            }}
-            transition={{ duration: 0.4 }}
-            className="h-[500px] rounded-[2rem] overflow-hidden bg-white/5 border border-white/10 relative group"
-          >
-
-            <img
-              src="https://images.unsplash.com/photo-1523398002811-999ca8dec234?q=80&w=1974&auto=format&fit=crop"
-              className="w-full h-full object-cover group-hover:scale-105 transition-all duration-700"
-            />
-
-            <div className="absolute inset-0 bg-black/40"></div>
-
-            <div className="absolute bottom-8 sm:bottom-10 left-8 sm:left-10">
-
-              <p className="text-xs sm:text-sm uppercase tracking-[0.3em] text-gray-300">
-
-                NYXEN 001
-
-              </p>
-
-              <h3 className="text-3xl sm:text-4xl font-black mt-3">
-
-                Shadow Collection
-
-              </h3>
-
-            </div>
-
-          </motion.div>
-
-          <div className="flex flex-col gap-8">
-
-            <div className="h-[240px] rounded-[2rem] overflow-hidden bg-white/5 border border-white/10 relative group">
-
-              <img
-                src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1974&auto=format&fit=crop"
-                className="w-full h-full object-cover group-hover:scale-105 transition-all duration-700"
-              />
-
-              <div className="absolute inset-0 bg-black/30"></div>
-
-            </div>
-
-            <div className="h-[240px] rounded-[2rem] overflow-hidden bg-white/5 border border-white/10 relative group">
-
-              <img
-                src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?q=80&w=1974&auto=format&fit=crop"
-                className="w-full h-full object-cover group-hover:scale-105 transition-all duration-700"
-              />
-
-              <div className="absolute inset-0 bg-black/30"></div>
-
-            </div>
-
-          </div>
-
-        </div>
-
       </motion.section>
 
-      {/* marquee */}
-      <div className="overflow-hidden py-12 border-y border-white/5 relative z-10">
-
-        <motion.div
-          animate={{ x: ["0%", "-50%"] }}
-          transition={{
-            duration: 20,
-            repeat: Infinity,
-            ease: "linear",
-          }}
-          className="flex gap-20 whitespace-nowrap text-2xl md:text-4xl font-black tracking-tight text-white/10 uppercase"
-        >
-
-          <span>SILENCE.</span>
-          <span>STRENGTH.</span>
-          <span>IDENTITY.</span>
-          <span>NYXEN.</span>
-
-          <span>SILENCE.</span>
-          <span>STRENGTH.</span>
-          <span>IDENTITY.</span>
-          <span>NYXEN.</span>
-
-        </motion.div>
-
-      </div>
-
-      {/* contact */}
+      {/* footer */}
       <footer
         id="contact"
-        className="relative z-10 px-6 sm:px-8 md:px-24 py-24"
+        className="relative z-10 px-6 sm:px-8 md:px-24 py-24 border-t border-white/5"
       >
 
-        <div className="grid md:grid-cols-2 gap-16">
+        <div className="flex flex-col items-center text-center">
 
-          <div>
+          <img
+            src={logo}
+            alt="NYXEN"
+            className="w-24 h-24 object-contain mb-8 opacity-90"
+          />
 
-            <p className="text-xs sm:text-sm uppercase tracking-[0.3em] text-gray-500 mb-6">
+          <h2 className="text-5xl md:text-7xl font-black tracking-[-0.08em]">
+            NYXEN
+          </h2>
 
-              Contact
-
-            </p>
-
-            <h2 className="text-4xl md:text-6xl font-black leading-tight">
-
-              Join the silence.
-
-            </h2>
-
-            <p className="mt-8 text-gray-400 text-lg max-w-xl leading-relaxed">
-
-              For collaborations, business inquiries or support,
-              contact NYXEN through the channels below.
-
-            </p>
-
-          </div>
-
-          <div className="flex flex-col gap-8">
-
-            <div className="bg-white/[0.03] border border-white/5 rounded-[2rem] p-8 backdrop-blur-xl">
-
-              <p className="text-xs uppercase tracking-[0.3em] text-gray-500 mb-4">
-                Support
-              </p>
-
-              <a
-                href="mailto:support@nyxenwear.com"
-                className="text-2xl font-black hover:text-gray-300 transition"
-              >
-                support@nyxenwear.com
-              </a>
-
-            </div>
-
-            <div className="bg-white/[0.03] border border-white/5 rounded-[2rem] p-8 backdrop-blur-xl">
-
-              <p className="text-xs uppercase tracking-[0.3em] text-gray-500 mb-4">
-                Collaborations
-              </p>
-
-              <a
-                href="mailto:collabs@nyxenwear.com"
-                className="text-2xl font-black hover:text-gray-300 transition"
-              >
-                collabs@nyxenwear.com
-              </a>
-
-            </div>
-
-            <div className="flex gap-6 text-sm uppercase tracking-[0.2em] text-gray-500 mt-4">
-
-              <a
-                href="https://instagram.com/officialnyxen"
-                target="_blank"
-                className="hover:text-white hover:tracking-[0.25em] transition-all duration-500"
-              >
-                Instagram
-              </a>
-
-              <a
-                href="https://tiktok.com/@officialnyxen"
-                target="_blank"
-                className="hover:text-white hover:tracking-[0.25em] transition-all duration-500"
-              >
-                TikTok
-              </a>
-
-            </div>
-
-          </div>
-
-        </div>
-
-        <div className="border-t border-white/5 mt-20 pt-10 flex flex-col md:flex-row justify-between items-center gap-6">
-
-          <p className="text-xs sm:text-sm text-gray-500">
-
-            © NYXEN 2026 — Built in silence.
-
+          <p className="mt-6 text-gray-500 uppercase tracking-[0.3em] text-sm">
+            Wear The Future
           </p>
 
-          <p className="text-xs uppercase tracking-[0.2em] text-gray-600">
+          <div className="flex gap-8 mt-12 text-sm uppercase tracking-[0.2em] text-gray-400">
 
-            Haarlem · Netherlands
+            <a
+              href="https://instagram.com/officialnyxen"
+              target="_blank"
+              className="hover:text-white transition-all duration-500"
+            >
+              Instagram
+            </a>
 
+            <a
+              href="https://tiktok.com/@officialnyxen"
+              target="_blank"
+              className="hover:text-white transition-all duration-500"
+            >
+              TikTok
+            </a>
+
+          </div>
+
+          <p className="mt-16 text-xs text-gray-600 uppercase tracking-[0.2em]">
+            © NYXEN 2026 — Built In Silence
           </p>
 
         </div>
