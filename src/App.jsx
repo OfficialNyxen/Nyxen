@@ -202,7 +202,7 @@ export default function App() {
           transition={{ duration: 1.5 }}
           src={logo}
           alt="NYXEN"
-          className="w-28 md:w-40 object-contain mx-auto mb-10"
+          className="w-36 md:w-52 object-contain mx-auto mb-10"
        />
           <motion.h1
             initial={{ opacity: 0, letterSpacing: "-0.5em" }}
