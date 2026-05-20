@@ -184,18 +184,8 @@ export default function App() {
         id="hero"
         className="min-h-screen flex flex-col items-center justify-center px-6 text-center relative z-10 overflow-hidden"
       >
-
-        {/* background logo */}
-        <motion.img
-          src={logo}
-          alt="NYXEN"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 0.04 }}
-          transition={{ duration: 2 }}
-          className="absolute w-[500px] md:w-[800px] opacity-5 blur-[1px] pointer-events-none"
-        />
-
-        <motion.div
+      
+          <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{
             opacity: 1,
@@ -208,7 +198,14 @@ export default function App() {
           }}
           className="relative z-10"
         >
-
+          <motion.img
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.5 }}
+          src={logo}
+          alt="NYXEN"
+          className="w-28 md:w-40 object-contain mx-auto mb-10"
+       />
           <motion.h1
             initial={{ opacity: 0, letterSpacing: "-0.5em" }}
             animate={{ opacity: 1, letterSpacing: "-0.08em" }}
